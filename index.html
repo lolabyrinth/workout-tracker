@@ -9,28 +9,53 @@
 <body>
   <header>
     <h1>Workout Tracker</h1>
+    <div class="nav">
+      <button id="start-workout">Nouvelle séance</button>
+      <button id="nav-exercises">Ajouter un exercice</button>
+      <button id="nav-templates">Créer un template</button>
+    </div>
   </header>
 
   <main>
-    <section id="week-view">
-      <h2>Cette semaine</h2>
-      <div class="calendar"></div>
-    </section>
-
-    <section id="today-workout">
-      <h2>Séance du jour</h2>
-      <div id="workout-list"></div>
-      <button id="start-workout">+ Nouvelle séance</button>
-    </section>
+    <section class="calendar"></section>
+    <section id="workout-list" class="workout-list"></section>
   </main>
 
-  <footer>
-    <nav>
-      <button id="nav-home" class="active">Accueil</button>
-      <button id="nav-templates">Templates</button>
-      <button id="nav-exercises">Exercices</button>
-    </nav>
-  </footer>
+  <!-- Modal: choisir un template -->
+  <div id="template-modal" class="modal">
+    <div class="modal-content">
+      <h2>Choisir un template</h2>
+      <select id="template-select"></select>
+      <button id="confirm-template">Valider</button>
+    </div>
+  </div>
+
+  <!-- Modal: ajouter un exercice -->
+  <div id="exercise-modal" class="modal">
+    <div class="modal-content">
+      <h2>Nouvel exercice</h2>
+      <form id="exercise-form">
+        <input name="name" placeholder="Nom de l'exercice" required />
+        <input name="sets" placeholder="Nb de séries" type="number" required />
+        <input name="reps" placeholder="Nb de reps" type="number" required />
+        <input name="weight" placeholder="Poids (kg)" type="number" step="0.5" required />
+        <input name="muscles" placeholder="Muscles sollicités" />
+        <button type="submit">Ajouter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: créer un template -->
+  <div id="template-modal-create" class="modal">
+    <div class="modal-content">
+      <h2>Nouveau template</h2>
+      <form id="template-form">
+        <input name="templateName" placeholder="Nom du template" required />
+        <div id="template-exercise-options" class="checkbox-list"></div>
+        <button type="submit">Créer</button>
+      </form>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
